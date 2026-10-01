@@ -2,6 +2,6 @@ fastapi>=0.115
 uvicorn[standard]>=0.30
 python-multipart>=0.0.9
 pydantic>=2.8
-pydantic-settings>=2.4
+pydantic-settings>=2.15.0
 pypdfium2>=4.30
 openpyxl>=3.1.5
