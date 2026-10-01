@@ -9,6 +9,6 @@ hypothesis>=6.100
 ruff>=0.6
 mypy>=1.11
 bandit>=1.7.9
-pip-audit>=2.7
+pip-audit>=2.10.1
 # Carga (opcional, se ejecuta aparte: locust -f tests/performance/locustfile.py)
 locust>=2.31
