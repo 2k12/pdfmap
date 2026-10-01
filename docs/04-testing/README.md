@@ -8,6 +8,7 @@
 | [casos-de-prueba.md](casos-de-prueba.md) | Especificación de casos TC-001…TC-060 |
 | [matriz-trazabilidad-RTM.md](matriz-trazabilidad-RTM.md) | Requisito → casos → archivos de test → estado |
 | [plantilla-reporte-defectos.md](plantilla-reporte-defectos.md) | Reporte de anomalías (IEEE 1044) y ciclo de vida del defecto |
+| [informe-resumen-v1.0.0.md](informe-resumen-v1.0.0.md) | Informe real v1.0.0: 328 pruebas, 7 defectos corregidos |
 | [informe-resumen-pruebas.md](informe-resumen-pruebas.md) | Test Summary Report (IEEE 829) |
 | [metricas-de-calidad.md](metricas-de-calidad.md) | Cobertura, densidad de defectos, tasa de paso, DRE, MTTR |
 | [checklist-pruebas-exploratorias.md](checklist-pruebas-exploratorias.md) | Charters y checklist exploratorio |

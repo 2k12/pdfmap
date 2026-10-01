@@ -47,19 +47,19 @@ jobs:
         with: { python-version: "${{ matrix.python }}", cache: pip, cache-dependency-path: backend/requirements*.txt }
       - run: pip install -r requirements-dev.txt
       - name: Unitarias
-        run: pytest tests/unit -q --junitxml=reports/junit-unit.xml --cov --cov-report=
+        run: pytest tests/unit -q --junitxml=reports/junit-unit.xml --cov --cov-report= --cov-fail-under=0
       - name: Integración
-        run: pytest tests/integration -q --junitxml=reports/junit-integration.xml --cov --cov-append --cov-report=
+        run: pytest tests/integration -q --junitxml=reports/junit-integration.xml --cov --cov-append --cov-report= --cov-fail-under=0
       - name: API / funcionales
-        run: pytest tests/api -q --junitxml=reports/junit-api.xml --cov --cov-append --cov-report=
+        run: pytest tests/api -q --junitxml=reports/junit-api.xml --cov --cov-append --cov-report= --cov-fail-under=0
       - name: Contrato OpenAPI
-        run: pytest tests/contract -q --junitxml=reports/junit-contract.xml --cov --cov-append --cov-report=
+        run: pytest tests/contract -q --junitxml=reports/junit-contract.xml --cov --cov-append --cov-report= --cov-fail-under=0
       - name: Seguridad
-        run: pytest tests/security -q --junitxml=reports/junit-security.xml --cov --cov-append --cov-report=
+        run: pytest tests/security -q --junitxml=reports/junit-security.xml --cov --cov-append --cov-report= --cov-fail-under=0
       - name: Regresión (golden files)
-        run: pytest tests/regression -q --junitxml=reports/junit-regression.xml --cov --cov-append --cov-report=
+        run: pytest tests/regression -q --junitxml=reports/junit-regression.xml --cov --cov-append --cov-report= --cov-fail-under=0
       - name: Sistema E2E (API)
-        run: pytest tests/e2e -q --junitxml=reports/junit-e2e.xml --cov --cov-append --cov-report=
+        run: pytest tests/e2e -q --junitxml=reports/junit-e2e.xml --cov --cov-append --cov-report= --cov-fail-under=0
       - name: Umbral de cobertura (≥ 80 %)
         run: |
           coverage report
