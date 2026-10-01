@@ -67,7 +67,7 @@ jobs:
       - name: Matriz de requisitos
         if: always()
         run: pytest -q -m "not slow" -p no:cacheprovider --co -q > reports/collected.txt
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: backend-reports-${{ matrix.os }}-${{ matrix.python }}
@@ -93,7 +93,7 @@ jobs:
         with: { python-version: "3.13", cache: pip, cache-dependency-path: backend/requirements*.txt }
       - run: pip install -r requirements-dev.txt
       - run: pytest tests/performance -m slow -s --junitxml=reports/junit-performance.xml
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with: { name: backend-performance, path: backend/reports/ }
 
@@ -112,10 +112,10 @@ jobs:
       - name: Unitarias, componentes y accesibilidad (cobertura ≥ 70 %)
         run: npm run test:coverage
       - run: npm run build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with: { name: frontend-coverage, path: frontend/coverage/ }
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with: { name: frontend-dist, path: frontend/dist/ }
 
   # ---------------------------------------------------------------- E2E navegador
@@ -142,7 +142,7 @@ jobs:
           npm ci
           npx playwright install --with-deps chromium
           npm run e2e
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: playwright-report
