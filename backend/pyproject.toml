@@ -1,0 +1,57 @@
+[project]
+name = "pdfmap-backend"
+version = "1.0.0"
+description = "API de mapeo visual de reportes PDF/TXT a Excel"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --strict-markers"
+timeout = 300
+markers = [
+  "unit: pruebas unitarias (sin E/S)",
+  "integration: integración entre componentes (disco, PDF, SQLite)",
+  "api: pruebas funcionales de la API REST",
+  "contract: contrato OpenAPI",
+  "security: pruebas de seguridad / negativas",
+  "performance: rendimiento y memoria",
+  "regression: comparación contra resultados dorados",
+  "e2e: flujo completo de sistema vía API",
+  "slow: pruebas lentas (excluir con -m 'not slow')",
+  "req(id): requisito(s) del SRS que verifica la prueba",
+]
+filterwarnings = ["ignore::DeprecationWarning:openpyxl.*"]
+
+[tool.coverage.run]
+source = ["app"]
+branch = true
+omit = ["app/cli.py"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+skip_covered = true
+exclude_lines = ["pragma: no cover", "if __name__ == .__main__.:", "raise NotImplementedError"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["tests/fixtures/*.json"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "BLE", "C4", "SIM", "RUF"]
+ignore = ["S101", "RUF001", "RUF002", "RUF003", "B008", "UP007", "SIM105"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "B", "RUF012"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = false
+check_untyped_defs = true
+exclude = ["tests/"]
+
+[tool.bandit]
+exclude_dirs = ["tests"]

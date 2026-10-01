@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      PDFMAP_DATA_DIR: /data
+      PDFMAP_CORS_ORIGINS: '["http://localhost:8080"]'
+      # PDFMAP_API_KEY: cambie-esta-clave
+    volumes:
+      - pdfmap-data:/data
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+volumes:
+  pdfmap-data:

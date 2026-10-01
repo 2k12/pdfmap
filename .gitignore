@@ -1,0 +1,81 @@
+# ─────────────────────────────────────────────────────────────
+# DATOS CONFIDENCIALES: reportes reales de clientes (NUNCA versionar)
+# ─────────────────────────────────────────────────────────────
+/*.pdf
+/*.Pdf
+/*.PDF
+/*.xlsx
+/*.xls
+/*.csv
+# Cualquier PDF/Excel fuera de los fixtures sintéticos
+*.pdf
+*.Pdf
+*.PDF
+*.xlsx
+*.xls
+!backend/tests/fixtures/**/*.pdf
+!backend/tests/fixtures/**/*.xlsx
+
+# Datos de ejecución
+data/
+backend/data/
+*.db
+*.db-wal
+*.db-shm
+*.part
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+junit*.xml
+.benchmarks/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+frontend/blob-report/
+frontend/playwright/.cache/
+*.tsbuildinfo
+npm-debug.log*
+
+# Rendimiento / carga
+locust_*.html
+locust_*.csv
+
+# IDE / SO
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code (local)
+.claude/settings.local.json
+
+# Reportes generados por las pruebas
+backend/reports/
+
+# Script original y dependencias locales (formato de reporte privado: no se publica)
+/main.py
+/requirements.txt

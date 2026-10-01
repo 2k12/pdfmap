@@ -1,0 +1,46 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /backend
+    schedule:
+      interval: weekly
+      day: monday
+    labels: ["type/chore", "area/backend", "dependencies"]
+    commit-message:
+      prefix: "chore(deps)"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: npm
+    directory: /frontend
+    schedule:
+      interval: weekly
+      day: monday
+    labels: ["type/chore", "area/frontend", "dependencies"]
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      testing:
+        patterns: ["vitest*", "@vitest/*", "@testing-library/*", "@playwright/*", "*axe*"]
+      react:
+        patterns: ["react", "react-dom", "@types/react*"]
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    labels: ["type/chore", "area/ci", "dependencies"]
+    commit-message:
+      prefix: "ci(deps)"
+
+  - package-ecosystem: docker
+    directory: /backend
+    schedule:
+      interval: weekly
+    labels: ["type/chore", "area/ci", "dependencies"]
+
+  - package-ecosystem: docker
+    directory: /frontend
+    schedule:
+      interval: weekly
+    labels: ["type/chore", "area/ci", "dependencies"]

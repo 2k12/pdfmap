@@ -1,0 +1,89 @@
+name: "🛑 Defecto (IEEE 1044)"
+description: Anomalía encontrada durante las pruebas (formato IEEE 1044)
+title: "[DEF-xxx] "
+labels: ["type/defect", "status/new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Guía: docs/04-testing/plantilla-reporte-defectos.md · **Prohibido adjuntar datos reales de clientes.**
+  - type: input
+    id: requisito
+    attributes:
+      label: Requisito / caso de prueba
+      placeholder: RF-09 / TC-032
+    validations:
+      required: true
+  - type: dropdown
+    id: severidad
+    attributes:
+      label: Severidad
+      options: [Crítica, Alta, Media, Baja]
+    validations:
+      required: true
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad
+      options: [P0, P1, P2, P3]
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo (IEEE 1044)
+      options: [datos, interfaz, lógica, cálculo, rendimiento, seguridad, usabilidad, documentación, configuración]
+    validations:
+      required: true
+  - type: dropdown
+    id: modo
+    attributes:
+      label: Modo
+      options: [faltante, incorrecto, extra]
+  - type: dropdown
+    id: efecto
+    attributes:
+      label: Efecto
+      options: [funcionalidad, rendimiento, seguridad, usabilidad, integridad de datos]
+  - type: dropdown
+    id: actividad
+    attributes:
+      label: Actividad de detección
+      options: [revisión, unitaria, integración, API, E2E, exploratoria, rendimiento, seguridad, producción]
+  - type: dropdown
+    id: repetibilidad
+    attributes:
+      label: Repetibilidad
+      options: [siempre, intermitente, una vez]
+  - type: input
+    id: version
+    attributes:
+      label: Versión / commit
+    validations:
+      required: true
+  - type: textarea
+    id: entorno
+    attributes:
+      label: Entorno
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: obtenido
+    attributes:
+      label: Resultado obtenido
+    validations:
+      required: true
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidencia (fixture sintético, plantilla JSON, logs)

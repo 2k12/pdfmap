@@ -1,0 +1,64 @@
+name: "🐞 Bug"
+description: Reportar un comportamiento incorrecto
+title: "[Bug] "
+labels: ["type/bug", "status/new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **No adjuntes datos reales de clientes** (PDF/Excel). Reproduce con un fixture sintético o un extracto anonimizado.
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Descripción
+      description: ¿Qué ocurre?
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir
+      placeholder: |
+        1. Cargar ...
+        2. Crear regla ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: obtenido
+    attributes:
+      label: Resultado obtenido
+    validations:
+      required: true
+  - type: dropdown
+    id: componente
+    attributes:
+      label: Componente
+      options: [backend-core, backend-api, frontend, ci, docs, otro]
+    validations:
+      required: true
+  - type: input
+    id: requisito
+    attributes:
+      label: Requisito relacionado (RF-xx / RNF-xx)
+      placeholder: RF-09
+  - type: input
+    id: version
+    attributes:
+      label: Versión / commit
+  - type: textarea
+    id: entorno
+    attributes:
+      label: Entorno
+      placeholder: Windows 11, Chrome 140, Python 3.14, Node 22
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidencia (logs, capturas, plantilla JSON)
+      render: shell

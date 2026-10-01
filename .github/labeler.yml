@@ -1,0 +1,18 @@
+"area/backend":
+  - changed-files:
+      - any-glob-to-any-file: ["backend/app/**"]
+"area/frontend":
+  - changed-files:
+      - any-glob-to-any-file: ["frontend/src/**"]
+"area/docs":
+  - changed-files:
+      - any-glob-to-any-file: ["docs/**", "*.md"]
+"area/ci":
+  - changed-files:
+      - any-glob-to-any-file: [".github/**", "**/Dockerfile", "docker-compose.yml"]
+"test/backend":
+  - changed-files:
+      - any-glob-to-any-file: ["backend/tests/**"]
+"test/frontend":
+  - changed-files:
+      - any-glob-to-any-file: ["frontend/tests/**", "frontend/e2e/**"]

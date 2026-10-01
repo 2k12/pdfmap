@@ -1,0 +1,118 @@
+# Etiquetas del repositorio (creadas por scripts/github/bootstrap.*)
+# Formato: name / color (hex sin #) / description
+- name: type/feature
+  color: "1d76db"
+  description: Nueva funcionalidad o historia de usuario
+- name: type/bug
+  color: "d73a4a"
+  description: Comportamiento incorrecto
+- name: type/defect
+  color: "b60205"
+  description: Defecto encontrado en pruebas (IEEE 1044)
+- name: type/test
+  color: "0e8a16"
+  description: Caso o suite de prueba
+- name: type/docs
+  color: "0075ca"
+  description: Documentación
+- name: type/chore
+  color: "cfd3d7"
+  description: Mantenimiento, dependencias
+- name: type/requirement
+  color: "5319e7"
+  description: Requisito del SRS (RF/RNF)
+- name: type/question
+  color: "d876e3"
+  description: Duda o ambigüedad
+
+- name: priority/must
+  color: "b60205"
+  description: MoSCoW Must
+- name: priority/should
+  color: "d93f0b"
+  description: MoSCoW Should
+- name: priority/could
+  color: "fbca04"
+  description: MoSCoW Could
+- name: priority/wont
+  color: "c2e0c6"
+  description: MoSCoW Won't (esta versión)
+
+- name: area/backend
+  color: "006b75"
+  description: Backend FastAPI
+- name: area/frontend
+  color: "1f883d"
+  description: Frontend React
+- name: area/engine
+  color: "0052cc"
+  description: Motor de extracción/mapeo (app/core)
+- name: area/api
+  color: "5319e7"
+  description: API REST
+- name: area/ui
+  color: "bfdadc"
+  description: Interfaz y UX
+- name: area/ci
+  color: "000000"
+  description: CI/CD, GitHub Actions, Docker
+- name: area/docs
+  color: "0075ca"
+  description: Documentación
+- name: area/nfr
+  color: "6f42c1"
+  description: Requisito no funcional
+
+- name: test/unit
+  color: "c5def5"
+  description: Pruebas unitarias
+- name: test/integration
+  color: "c5def5"
+  description: Pruebas de integración
+- name: test/api
+  color: "c5def5"
+  description: Pruebas de API
+- name: test/contract
+  color: "c5def5"
+  description: Pruebas de contrato OpenAPI
+- name: test/e2e
+  color: "c5def5"
+  description: Pruebas end-to-end
+- name: test/performance
+  color: "c5def5"
+  description: Rendimiento y carga
+- name: test/security
+  color: "c5def5"
+  description: Pruebas de seguridad
+- name: test/a11y
+  color: "c5def5"
+  description: Accesibilidad
+- name: test/regression
+  color: "c5def5"
+  description: Regresión
+
+- name: status/new
+  color: "ededed"
+  description: Sin triaje
+- name: status/triaged
+  color: "fef2c0"
+  description: Clasificado
+- name: status/in-progress
+  color: "fbca04"
+  description: En curso
+- name: status/fixed
+  color: "0e8a16"
+  description: Corregido, pendiente de verificación
+- name: status/verifying
+  color: "c2e0c6"
+  description: En verificación
+- name: status/blocked
+  color: "b60205"
+  description: Bloqueado
+- name: status/deferred
+  color: "d4c5f9"
+  description: Diferido
+
+- name: dependencies
+  color: "0366d6"
+  description: Actualización de dependencias

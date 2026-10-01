@@ -1,0 +1,64 @@
+name: Seguridad
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"   # lunes 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sca-python:
+    name: SCA · pip-audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - run: pip install pip-audit
+      - run: pip-audit -r backend/requirements.txt --strict
+
+  sca-node:
+    name: SCA · npm audit
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: frontend } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: npm ci
+      - run: npm audit --omit=dev --audit-level=high
+
+  sast-bandit:
+    name: SAST · Bandit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - run: pip install bandit
+      - run: bandit -c backend/pyproject.toml -r backend/app -ll
+
+  secrets:
+    name: Secretos · gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  confidential-data:
+    name: Datos reales no versionados (RNF-09)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rechazar PDF/XLSX fuera de los fixtures sintéticos
+        run: |
+          found=$(git ls-files | grep -iE '\.(pdf|xlsx|xls)$' | grep -v '^backend/tests/fixtures/' || true)
+          if [ -n "$found" ]; then echo "::error::Archivos de datos no permitidos:"; echo "$found"; exit 1; fi

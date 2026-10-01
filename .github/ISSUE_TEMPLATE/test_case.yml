@@ -1,0 +1,53 @@
+name: "🧪 Caso de prueba"
+description: Proponer o documentar un caso de prueba (docs/04-testing/casos-de-prueba.md)
+title: "[TC-xxx] "
+labels: ["type/test", "status/new"]
+body:
+  - type: input
+    id: requisito
+    attributes:
+      label: Requisito (RF-xx / RNF-xx)
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de prueba
+      options: [unitaria, integración, API, contrato, regresión, E2E, rendimiento, carga, seguridad, accesibilidad, usabilidad, exploratoria]
+    validations:
+      required: true
+  - type: dropdown
+    id: tecnica
+    attributes:
+      label: Técnica de diseño
+      options: [particiones de equivalencia, valores límite, tabla de decisión, transición de estados, basada en propiedades, error guessing, otra]
+  - type: textarea
+    id: precondiciones
+    attributes:
+      label: Precondiciones
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos
+    validations:
+      required: true
+  - type: textarea
+    id: datos
+    attributes:
+      label: Datos de prueba (solo sintéticos)
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad
+      options: [Alta, Media, Baja]
+  - type: input
+    id: ubicacion
+    attributes:
+      label: Ubicación de la automatización
+      placeholder: backend/tests/unit/test_engine.py::test_context_rows

@@ -1,0 +1,74 @@
+{
+  "name": "Ventas por vendedor (fixture)",
+  "description": "Plantilla de pruebas para el reporte sintético generado por generate_fixtures.py",
+  "rules": [
+    {
+      "id": "encabezado",
+      "name": "Encabezado de página",
+      "action": "skip",
+      "match": {"type": "regex", "value": "^(EMPRESA DEMO|REPORTE DE VENTAS|Fecha\\s+Factura|-{10,})"},
+      "fields": []
+    },
+    {
+      "id": "vendedor",
+      "name": "Vendedor",
+      "color": "#2563eb",
+      "action": "context",
+      "match": {"type": "regex", "value": "^Vendedor: (?P<codigo>V\\d{3}) (?P<nombre>.+?)\\s+Zona: (?P<zona>\\S+)"},
+      "fields": [
+        {"key": "codigo", "group": "codigo"},
+        {"key": "nombre", "group": "nombre"},
+        {"key": "zona", "group": "zona"}
+      ]
+    },
+    {
+      "id": "venta",
+      "name": "Detalle de venta",
+      "color": "#16a34a",
+      "action": "row",
+      "match": {"type": "regex", "value": "^\\d{2}/\\d{2}/\\d{4}\\s+F-\\d{6}"},
+      "fields": [
+        {"key": "fecha", "start": 0, "end": 10, "type": "date", "date_formats": ["%d/%m/%Y"]},
+        {"key": "factura", "start": 12, "end": 20},
+        {"key": "cliente", "start": 22, "end": 50},
+        {"key": "cantidad", "start": 50, "end": 56, "type": "integer"},
+        {"key": "total", "start": 56, "end": null, "type": "number"},
+        {"key": "nota", "constant": ""}
+      ]
+    },
+    {
+      "id": "nota",
+      "name": "Nota (continúa la venta)",
+      "action": "append",
+      "match": {"type": "regex", "value": "^\\s+Nota: (?P<texto>.+)$"},
+      "fields": [{"key": "texto", "group": "texto", "target": "nota"}]
+    },
+    {
+      "id": "total_vendedor",
+      "name": "Total vendedor",
+      "action": "check",
+      "match": {"type": "regex", "value": "Total vendedor:\\s*(?P<cantidad>\\S+)\\s+(?P<total>\\S+)"},
+      "fields": [
+        {"key": "cantidad", "group": "cantidad", "type": "integer"},
+        {"key": "total", "group": "total", "type": "number"}
+      ],
+      "check": {"group": "vendedor", "compare": [
+        {"field": "cantidad", "sum_of": "cantidad"},
+        {"field": "total", "sum_of": "total"}
+      ]}
+    }
+  ],
+  "columns": [
+    {"id": "vendedor", "header": "Vendedor", "sources": ["vendedor.codigo"]},
+    {"id": "nombre", "header": "Nombre", "sources": ["vendedor.nombre"], "width": 25},
+    {"id": "zona", "header": "Zona", "sources": ["vendedor.zona"]},
+    {"id": "fecha", "header": "Fecha", "sources": ["venta.fecha"]},
+    {"id": "factura", "header": "Factura", "sources": ["venta.factura"]},
+    {"id": "cliente", "header": "Cliente", "sources": ["venta.cliente"], "width": 30},
+    {"id": "cantidad", "header": "Cantidad", "sources": ["venta.cantidad"], "total": true},
+    {"id": "total", "header": "Total", "sources": ["venta.total"], "total": true},
+    {"id": "nota", "header": "Nota", "sources": ["venta.nota"], "width": 30},
+    {"id": "pagina", "header": "Página", "sources": ["@page"]}
+  ],
+  "options": {"sheet_name": "Ventas"}
+}

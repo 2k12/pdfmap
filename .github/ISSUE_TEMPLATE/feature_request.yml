@@ -1,0 +1,50 @@
+name: "✨ Funcionalidad / historia de usuario"
+description: Proponer una funcionalidad o una historia de usuario
+title: "[RF-xx] "
+labels: ["type/feature", "status/new"]
+body:
+  - type: input
+    id: requisito
+    attributes:
+      label: Requisito (RF-xx / RNF-xx)
+      description: ID del SRS (docs/01-requisitos/SRS-IEEE-830.md). Si es nuevo, el analista asignará uno.
+      placeholder: RF-08
+  - type: textarea
+    id: historia
+    attributes:
+      label: Historia de usuario
+      placeholder: Como <rol> quiero <acción> para <beneficio>.
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación (Dado / Cuando / Entonces)
+      render: gherkin
+    validations:
+      required: true
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad (MoSCoW)
+      options: [Must, Should, Could, Won't]
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      multiple: true
+      options: [backend, frontend, engine, api, ui, docs, ci]
+  - type: input
+    id: estimacion
+    attributes:
+      label: Estimación (puntos)
+  - type: checkboxes
+    id: dor
+    attributes:
+      label: Definition of Ready
+      options:
+        - label: Criterios verificables
+        - label: Dependencias identificadas
+        - label: Datos de prueba sintéticos disponibles o planificados

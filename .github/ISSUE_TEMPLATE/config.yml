@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentación
+    url: https://github.com/2k12/pdfmap/tree/main/docs
+    about: SRS, arquitectura, testing y manual de usuario
+  - name: 🔒 Vulnerabilidad de seguridad
+    url: https://github.com/2k12/pdfmap/security/advisories/new
+    about: Reporta vulnerabilidades de forma privada (ver SECURITY.md)

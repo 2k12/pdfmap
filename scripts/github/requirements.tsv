@@ -1,0 +1,28 @@
+id	title	priority	milestone	area	srs_anchor
+RF-01	Carga de archivos PDF/TXT arrastrando o seleccionando	must	v0.1 MVP extracción	area/frontend	rf-01--carga-de-archivos-pdftxt-arrastrando-o-seleccionando
+RF-02	Subida por fragmentos reanudable para archivos pesados	must	v0.1 MVP extracción	area/api	rf-02--subida-por-fragmentos-reanudable-para-archivos-pesados
+RF-03	Validación de tipo (extensión + firma %PDF) y tamaño	must	v0.1 MVP extracción	area/api	rf-03--validación-de-tipo-y-tamaño
+RF-04	Extracción automática a cuadrícula de texto con calibración y re-extracción	must	v0.1 MVP extracción	area/engine	rf-04--extracción-automática-a-cuadrícula-de-texto-con-calibración-y-reextracción-manual
+RF-05	Visualización paginada de líneas	must	v0.1 MVP extracción	area/frontend	rf-05--visualización-paginada-de-líneas
+RF-06	Búsqueda de texto / regex	should	v0.2 Mapeo visual	area/api	rf-06--búsqueda-de-texto--regex
+RF-07	Crear regla desde línea seleccionada con regex sugerida	must	v0.2 Mapeo visual	area/ui	rf-07--crear-regla-desde-la-línea-seleccionada-con-regex-sugerida
+RF-08	Definir campos arrastrando sobre el texto + detección automática de columnas y tipos	must	v0.2 Mapeo visual	area/ui	rf-08--definir-campos-arrastrando-sobre-el-texto-y-detección-automática-de-columnas-y-tipos
+RF-09	Tipos y conversión de datos	must	v0.2 Mapeo visual	area/engine	rf-09--tipos-y-conversión
+RF-10	Acciones de regla (row, context, row_context, append, check, skip)	must	v0.2 Mapeo visual	area/engine	rf-10--acciones-de-regla
+RF-11	Diseño visual de columnas Excel	must	v0.3 Diseño Excel	area/ui	rf-11--diseño-visual-de-columnas-del-excel
+RF-12	Vista previa en vivo	must	v0.3 Diseño Excel	area/frontend	rf-12--vista-previa-en-vivo
+RF-13	Gestión de plantillas (CRUD, clonar, importar/exportar, plantilla de ejemplo precargada)	must	v0.3 Diseño Excel	area/api	rf-13--gestión-de-plantillas
+RF-14	Procesamiento en segundo plano con progreso y cancelación	must	v0.1 MVP extracción	area/backend	rf-14--procesamiento-en-segundo-plano-con-progreso-y-cancelación
+RF-15	Exportación XLSX streaming (multi-hoja) y CSV	must	v0.3 Diseño Excel	area/engine	rf-15--exportación-xlsx-streaming-y-csv
+RF-16	Validación de cuadre y reporte de errores	should	v0.3 Diseño Excel	area/engine	rf-16--validación-de-cuadre-y-reporte-de-errores
+RF-17	Consulta paginada de resultados	should	v1.0 Release	area/api	rf-17--consulta-paginada-de-resultados
+RF-18	Eliminación de archivos y datos asociados	must	v1.0 Release	area/api	rf-18--eliminación-de-archivos-y-datos-asociados
+RNF-01	Rendimiento (≥ 40 pág/s; vista previa < 2 s)	must	v1.0 Release	area/nfr	rnf-01--rendimiento
+RNF-02	Escalabilidad y memoria constante (≥ 1 GB)	must	v1.0 Release	area/nfr	rnf-02--escalabilidad-y-memoria-constante
+RNF-03	Seguridad (OWASP API Top 10)	must	v1.0 Release	area/nfr	rnf-03--seguridad
+RNF-04	Usabilidad	should	v1.0 Release	area/nfr	rnf-04--usabilidad
+RNF-05	Accesibilidad WCAG 2.1 AA	should	v1.0 Release	area/nfr	rnf-05--accesibilidad
+RNF-06	Mantenibilidad (cobertura, lint, tipado)	must	v1.0 Release	area/nfr	rnf-06--mantenibilidad
+RNF-07	Portabilidad (Windows/Linux, Docker)	should	v1.0 Release	area/nfr	rnf-07--portabilidad
+RNF-08	Confiabilidad (SQLite persistente, Decimal, errores no fatales)	must	v1.0 Release	area/nfr	rnf-08--confiabilidad
+RNF-09	Privacidad (procesamiento local, datos reales fuera del repo)	must	v1.0 Release	area/nfr	rnf-09--privacidad
